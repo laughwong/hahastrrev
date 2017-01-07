@@ -1,0 +1,8 @@
+hahastrrev.lo: /Users/wanglin/Downloads/php-5.6.29/ext/hahastrrev/hahastrrev.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/Users/wanglin/Downloads/php-5.6.29/ext/hahastrrev $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /Users/wanglin/Downloads/php-5.6.29/ext/hahastrrev/hahastrrev.c -o hahastrrev.lo 
+$(phplibdir)/hahastrrev.la: ./hahastrrev.la
+	$(LIBTOOL) --mode=install cp ./hahastrrev.la $(phplibdir)
+
+./hahastrrev.la: $(shared_objects_hahastrrev) $(HAHASTRREV_SHARED_DEPENDENCIES)
+	$(LIBTOOL) --mode=link $(CC) $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS) $(LDFLAGS) -o $@ -export-dynamic -avoid-version -prefer-pic -module -rpath $(phplibdir) $(EXTRA_LDFLAGS) $(shared_objects_hahastrrev) $(HAHASTRREV_SHARED_LIBADD)
+
